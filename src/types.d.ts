@@ -1,0 +1,3 @@
+type ElementProps = {
+  className?: string;
+};

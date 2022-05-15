@@ -1,38 +1,14 @@
+import Branch from './Branch';
 import './style.css';
 
 const ground = document.querySelector<HTMLDivElement>('#ground')!;
 
-const random = (min: number, max: number): number =>
+export const random = (min: number, max: number): number =>
   Math.random() * (max - min) + min;
 
-const createBranch = (
-  rotation: number,
+const grow = (
   size: number,
-  width: number,
-  bottom: string = '90%'
-): HTMLDivElement => {
-  const newBranch = document.createElement('div');
-
-  newBranch.style.backgroundColor = '#000';
-  newBranch.style.width = `${width}px`;
-  newBranch.style.height = `${size}px`;
-
-  newBranch.style.position = 'absolute';
-  newBranch.style.left = '50%';
-  newBranch.style.bottom = bottom;
-
-  newBranch.style.transformOrigin = 'bottom';
-
-  newBranch.style.transform = `rotate(${
-    rotation * random(0.8, 1.5)
-  }deg) translate(-50%)`;
-
-  return newBranch;
-};
-
-const fertilizeTree = (
-  size: number,
-  branches: HTMLDivElement[],
+  branches: Branch[],
   branchSize: number,
   branchWidth: number,
   rotation: number
@@ -42,47 +18,58 @@ const fertilizeTree = (
   const newBranches = [];
 
   for (const branch of branches) {
-    const leftBranch = createBranch(
-      -rotation,
-      branchSize * random(0.6, 0.85),
-      branchWidth * random(0.6, 0.85)
-    );
-    const middleBranch = createBranch(
-      random(-15, 15),
-      branchSize * random(0.95, 1.05),
-      branchWidth * random(0.95, 1.05)
-    );
-    const rightBranch = createBranch(
-      rotation,
-      branchSize * random(0.6, 0.85),
-      branchWidth * random(0.6, 0.85)
-    );
+    const leftBranch = new Branch({
+      rotation: -rotation,
+      size: branchSize * random(0.6, 0.8),
+      width: branchWidth * random(0.6, 0.8),
+    });
 
-    branch.append(leftBranch, middleBranch, rightBranch);
+    const middleBranch = new Branch({
+      rotation: random(-12, 12),
+      size: branchSize * random(0.8, 0.9),
+      width: branchWidth * random(0.7, 0.8),
+    });
+
+    const rightBranch = new Branch({
+      rotation,
+      size: branchSize * random(0.6, 0.8),
+      width: branchWidth * random(0.6, 0.8),
+    });
+
+    branch.target.append(
+      leftBranch.target,
+      middleBranch.target,
+      rightBranch.target
+    );
 
     newBranches.push(leftBranch, middleBranch, rightBranch);
   }
 
-  fertilizeTree(
+  grow(
     size,
     newBranches,
-    branchSize * random(0.6, 0.85),
-    branchWidth * random(0.45, 0.55),
-    rotation * random(0.85, 1)
+    branchSize * random(0.7, 0.85),
+    branchWidth * random(0.5, 0.65),
+    rotation
   );
 };
 
-const mainBranchSize = random(100, 160);
-const mainBranchWidth = random(25, 30);
+const mainBranchSize = random(150, 250);
+const mainBranchWidth = random(35, 45);
 
-const tree = createBranch(0, mainBranchSize, mainBranchWidth, '0');
+const tree = new Branch({
+  rotation: 0,
+  size: mainBranchSize,
+  width: mainBranchWidth,
+  bottom: '0',
+});
 
-ground.append(tree);
+ground.append(tree.target);
 
-fertilizeTree(
-  3200,
+grow(
+  640,
   [tree],
-  mainBranchSize,
+  mainBranchSize * random(0.6, 0.85),
   mainBranchWidth * random(0.5, 0.65),
-  random(25, 29)
+  random(25, 32)
 );
