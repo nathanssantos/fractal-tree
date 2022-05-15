@@ -48,7 +48,7 @@ const fertilizeTree = (
       branchWidth * random(0.6, 0.85)
     );
     const middleBranch = createBranch(
-      0,
+      random(-15, 15),
       branchSize * random(0.95, 1.05),
       branchWidth * random(0.95, 1.05)
     );
@@ -80,7 +80,7 @@ const tree = createBranch(0, mainBranchSize, mainBranchWidth, '0');
 ground.append(tree);
 
 fertilizeTree(
-  640,
+  3200,
   [tree],
   mainBranchSize,
   mainBranchWidth * random(0.5, 0.65),
