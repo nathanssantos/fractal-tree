@@ -68,14 +68,21 @@ const fertilizeTree = (
     newBranches,
     branchSize * random(0.6, 0.85),
     branchWidth * random(0.45, 0.55),
-    rotation
+    rotation * random(0.85, 1)
   );
 };
 
 const mainBranchSize = random(100, 160);
+const mainBranchWidth = random(25, 30);
 
-const tree = createBranch(0, mainBranchSize, 30, '0');
+const tree = createBranch(0, mainBranchSize, mainBranchWidth, '0');
 
 ground.append(tree);
 
-fertilizeTree(640, [tree], mainBranchSize, 20, 27);
+fertilizeTree(
+  640,
+  [tree],
+  mainBranchSize,
+  mainBranchWidth * random(0.5, 0.65),
+  random(25, 29)
+);
