@@ -1,5 +1,4 @@
 import Element from './Element.js';
-import { random } from './main.js';
 
 type BranchProps = ElementProps & {
   rotation: number;
