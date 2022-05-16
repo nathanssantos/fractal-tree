@@ -1,19 +1,7 @@
 import Element from './Element.js';
 
-type BranchProps = ElementProps & {
-  rotation: number;
-  width: number;
-  height: number;
-  bottom?: number;
-};
-
 class Branch extends Element {
-  rotation = 0;
-  width = 0;
-  height = 0;
-  bottom? = 95;
-
-  constructor(props: BranchProps) {
+  constructor(props: ElementProps) {
     super(props);
     const { rotation, width, height, bottom = 95 } = props;
 

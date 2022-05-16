@@ -3,6 +3,10 @@ type SetStyleParam = [prop: string, value: string];
 class Element {
   target: HTMLDivElement = document.createElement('div');
   className?: string | null;
+  rotation = 0;
+  width = 0;
+  height = 0;
+  bottom? = 95;
 
   constructor(props: ElementProps) {
     const { className } = props;

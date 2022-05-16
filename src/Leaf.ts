@@ -1,19 +1,12 @@
 import Element from './Element.js';
 
-type LeafProps = ElementProps & {
-  rotation: number;
-  width: number;
-  height: number;
-  bottom?: number;
-};
-
 class Leaf extends Element {
   rotation = 0;
   width = 0;
   height = 0;
   bottom? = 95;
 
-  constructor(props: LeafProps) {
+  constructor(props: ElementProps) {
     super(props);
     const { rotation, width, height, bottom = 95 } = props;
 
