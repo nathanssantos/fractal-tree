@@ -32,10 +32,7 @@ class Branch extends Element {
       ['width', `${width}px`],
       ['height', `${height}px`],
       ['bottom', bottom || '95%'],
-      [
-        'transform',
-        `rotate(${rotation * random(0.8, 1.5)}deg) translate(-50%)`,
-      ],
+      ['transform', `rotate(${rotation}deg) translate(-50%)`],
       ['position', 'absolute'],
       ['left', '50%'],
       ['transformOrigin', 'bottom'],
