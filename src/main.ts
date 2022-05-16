@@ -54,8 +54,8 @@ const grow = (
   );
 };
 
-const mainBranchSize = random(150, 250);
-const mainBranchWidth = random(35, 45);
+const mainBranchSize = random(100, 150);
+const mainBranchWidth = random(20, 30);
 
 const tree = new Branch({
   rotation: 0,
@@ -69,7 +69,7 @@ ground.append(tree.target);
 grow(
   640,
   [tree],
-  mainBranchSize * random(0.6, 0.85),
-  mainBranchWidth * random(0.5, 0.65),
+  mainBranchSize * random(0.8, 0.85),
+  mainBranchWidth * random(0.7, 0.85),
   random(25, 32)
 );

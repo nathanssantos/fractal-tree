@@ -18,8 +18,8 @@ class Branch extends Element {
     this.target.style.width = `${width}px`;
     this.target.style.height = `${size}px`;
 
-    this.target.style.borderTopLeftRadius = '30%';
-    this.target.style.borderTopRightRadius = '30%';
+    this.target.style.borderTopLeftRadius = '27%';
+    this.target.style.borderTopRightRadius = '27%';
 
     this.target.style.position = 'absolute';
     this.target.style.left = '50%';
