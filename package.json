@@ -1,14 +1,28 @@
 {
   "name": "fractal-tree",
   "private": true,
-  "version": "0.0.0",
+  "version": "1.0.0",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nathanssantos/fractal-tree.git"
+  },
+  "bugs": {
+    "url": "https://github.com/nathanssantos/fractal-tree/issues"
+  },
+  "homepage": "https://nathanssantos.github.io/fractal-tree",
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "predeploy": "yarn build",
+    "deploy": "gh-pages -d dist"
   },
   "devDependencies": {
     "typescript": "^4.5.4",
     "vite": "^2.9.9"
+  },
+  "dependencies": {
+    "gh-pages": "^4.0.0"
   }
 }
