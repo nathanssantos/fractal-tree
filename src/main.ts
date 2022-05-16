@@ -49,8 +49,8 @@ const grow = (
     size,
     newBranches,
     branchSize * random(0.7, 0.85),
-    branchWidth * random(0.5, 0.65),
-    rotation
+    branchWidth * random(0.55, 0.7),
+    rotation * random(0.95, 1.05)
   );
 };
 
