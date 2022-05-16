@@ -16,10 +16,10 @@ let index = 0;
 const createLeaves = (branches: Branch[], leafAmount: number) => {
   for (const branch of branches) {
     for (let i = 0; i < leafAmount; i++) {
-      const side = random(0, 2) > 1 ? 'left' : 'right';
+      const leafSide = random(0, 2) > 1 ? 'left' : 'right';
 
       const newLeaf = new Leaf({
-        rotation: side === 'left' ? -random(0, 32) : random(0, 32),
+        rotation: leafSide === 'left' ? -random(0, 32) : random(0, 32),
         width: branch.width * 0.7,
         height: branch.height * 0.5,
         bottom: random(30, 100),
