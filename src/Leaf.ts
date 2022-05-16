@@ -1,19 +1,19 @@
 import Element from './Element.js';
 
-type BranchProps = ElementProps & {
+type LeafProps = ElementProps & {
   rotation: number;
   width: number;
   height: number;
   bottom?: number;
 };
 
-class Branch extends Element {
+class Leaf extends Element {
   rotation = 0;
   width = 0;
   height = 0;
   bottom? = 95;
 
-  constructor(props: BranchProps) {
+  constructor(props: LeafProps) {
     super(props);
 
     const { rotation, width, height, bottom = 95 } = props;
@@ -31,11 +31,10 @@ class Branch extends Element {
       ['position', 'absolute'],
       ['left', '50%'],
       ['transformOrigin', 'bottom'],
-      ['backgroundColor', '#261709'],
-      ['borderTopLeftRadius', '27%'],
-      ['borderTopRightRadius', '27%'],
+      ['backgroundColor', 'green'],
+      ['borderRadius', '50%'],
     ]);
   }
 }
 
-export default Branch;
+export default Leaf;
