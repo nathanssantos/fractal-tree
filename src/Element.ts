@@ -1,3 +1,5 @@
+type SetStyleParam = [prop: string, value: string];
+
 class Element {
   target: HTMLDivElement = document.createElement('div');
   className?: string | null;
@@ -12,8 +14,10 @@ class Element {
     }
   }
 
-  setStyle = (prop: string, value: string) => {
-    this.target.style[prop as any] = value;
+  setStyle = (params: SetStyleParam[]) => {
+    params.forEach(([prop, value]) => {
+      this.target.style[prop as any] = value;
+    });
   };
 
   destroy = () => {

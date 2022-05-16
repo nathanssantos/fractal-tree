@@ -4,33 +4,46 @@ import { random } from './main.js';
 type BranchProps = ElementProps & {
   rotation: number;
   width: number;
-  size: number;
+  height: number;
   bottom?: string;
 };
 
 class Branch extends Element {
+  rotation = 0;
+  width = 0;
+  height = 0;
+  bottom? = '95%';
+
   constructor(props: BranchProps) {
     super(props);
 
-    const { rotation, width, size, bottom } = props;
+    const { rotation, width, height, bottom } = props;
 
-    this.target.style.backgroundColor = '#000';
-    this.target.style.width = `${width}px`;
-    this.target.style.height = `${size}px`;
+    this.rotation = rotation;
+    this.width = width;
+    this.height = height;
+    this.bottom = bottom;
 
-    this.target.style.borderTopLeftRadius = '27%';
-    this.target.style.borderTopRightRadius = '27%';
-
-    this.target.style.position = 'absolute';
-    this.target.style.left = '50%';
-    this.target.style.bottom = bottom || '95%';
-
-    this.target.style.transformOrigin = 'bottom';
-
-    this.target.style.transform = `rotate(${
-      rotation * random(0.8, 1.5)
-    }deg) translate(-50%)`;
+    this.updateStyle({ rotation, width, height, bottom });
   }
+
+  updateStyle = ({ rotation, width, height, bottom }: BranchProps) => {
+    this.setStyle([
+      ['width', `${width}px`],
+      ['height', `${height}px`],
+      ['bottom', bottom || '95%'],
+      [
+        'transform',
+        `rotate(${rotation * random(0.8, 1.5)}deg) translate(-50%)`,
+      ],
+      ['position', 'absolute'],
+      ['left', '50%'],
+      ['transformOrigin', 'bottom'],
+      ['backgroundColor', '#000'],
+      ['borderTopLeftRadius', '27%'],
+      ['borderTopRightRadius', '27%'],
+    ]);
+  };
 }
 
 export default Branch;

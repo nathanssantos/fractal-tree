@@ -20,19 +20,19 @@ const grow = (
   for (const branch of branches) {
     const leftBranch = new Branch({
       rotation: -rotation,
-      size: branchSize * random(0.6, 0.8),
+      height: branchSize * random(0.6, 0.8),
       width: branchWidth * random(0.6, 0.8),
     });
 
     const middleBranch = new Branch({
       rotation: random(-12, 12),
-      size: branchSize * random(0.8, 0.9),
+      height: branchSize * random(0.8, 0.9),
       width: branchWidth * random(0.7, 0.8),
     });
 
     const rightBranch = new Branch({
       rotation,
-      size: branchSize * random(0.6, 0.8),
+      height: branchSize * random(0.6, 0.8),
       width: branchWidth * random(0.6, 0.8),
     });
 
@@ -59,7 +59,7 @@ const mainBranchWidth = random(20, 30);
 
 const tree = new Branch({
   rotation: 0,
-  size: mainBranchSize,
+  height: mainBranchSize,
   width: mainBranchWidth,
   bottom: '0',
 });
