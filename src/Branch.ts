@@ -15,7 +15,6 @@ class Branch extends Element {
 
   constructor(props: BranchProps) {
     super(props);
-
     const { rotation, width, height, bottom = 95 } = props;
 
     this.rotation = rotation;
